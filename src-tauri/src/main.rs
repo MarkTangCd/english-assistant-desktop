@@ -5,11 +5,6 @@
 
 use tauri::{CustomMenuItem, Menu, MenuItem, Submenu};
 
-#[tauri::command]
-async fn read_article(handle: tauri::AppHandle, content: &str) {
-    println!("open the reading article window");
-}
-
 fn main() {
     let quit = CustomMenuItem::new("quit".to_string(), "Quit");
     let clear = CustomMenuItem::new("clear".to_string(), "Clear");
@@ -32,7 +27,7 @@ fn main() {
                 _ => {}
             }
         })
-        .invoke_handler(tauri::generate_handler![read_article])
+        // .invoke_handler(tauri::generate_handler![read_article])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
