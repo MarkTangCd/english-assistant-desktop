@@ -87,19 +87,13 @@ function IndexPage() {
 
   return (
     <Box>
-      <Center style={{marginTop: '50px'}}>
-        <Flex w="770px" justify="space-between">
-          <Box w="500px">
-            <Input placeholder='Please enter words' />
-          </Box>
-          <Box w="100px">
-            <Button colorScheme='blue'>Search</Button>
-          </Box>
+      <Box style={{marginTop: '50px', padding: '25px'}}>
+        <Flex>
           <Box w="135px">
             <Button colorScheme='purple' onClick={onOpen}>Create Group</Button>
           </Box>
         </Flex>
-      </Center>
+      </Box>
       <Flex style={{marginTop: '20px', padding: '10px'}}>
         {
           panels.map((item, index) => (

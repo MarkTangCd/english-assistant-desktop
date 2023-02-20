@@ -5,10 +5,9 @@
 
 use tauri::{CustomMenuItem, Menu, MenuItem, Submenu};
 
-// Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 #[tauri::command]
-fn greet(name: &str) -> String {
-    format!("Hello, {}! You've been greeted from Rust!", name)
+async fn read_article(handle: tauri::AppHandle, content: &str) {
+    println!("open the reading article window");
 }
 
 fn main() {
@@ -33,7 +32,7 @@ fn main() {
                 _ => {}
             }
         })
-        .invoke_handler(tauri::generate_handler![greet])
+        .invoke_handler(tauri::generate_handler![read_article])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

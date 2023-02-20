@@ -87,6 +87,12 @@ function GroupPage() {
     }
   }
 
+  const readArticle = (content: string) => {
+    setLoading(false);
+    onOpen();
+    setArticle(content);
+  }
+
   useEffect(() => {
     (async () => {
       setDB(await initDB());
@@ -118,7 +124,7 @@ function GroupPage() {
       <Flex style={{ marginTop: '30px' }}>
         {
           articles.map((item, index) => (
-            <Card key={index} style={{width: '230px', marginLeft: '15px', cursor: 'pointer'}}>
+            <Card key={index} onClick={() => readArticle(item.content)} style={{width: '230px', marginLeft: '15px', cursor: 'pointer'}}>
               <CardBody>
                 <Text color="GrayText">
                   { item.content }
